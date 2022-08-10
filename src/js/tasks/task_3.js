@@ -32,13 +32,13 @@ function showMyDB(object) {
 
 showMyDB(personalMovieDB)
 
-function writeYourLovedNumbers() {
+function writeYourGenres(obj) {
     for (let i = 0; i < 5; i++) {
-        prompt('')
+        obj.genres[i] = prompt('Введите ваш любимый жанр')
     }
 }
 
-writeYourGenres()
+writeYourGenres(personalMovieDB)
 
 
 while (true){
