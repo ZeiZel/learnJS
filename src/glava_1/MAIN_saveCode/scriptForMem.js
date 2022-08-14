@@ -8,6 +8,9 @@
 
 
 //! ------------------------ DOM-Дерево -------------------------------
+//! Получение элементов со страницы
+
+
 
 //! ------------------------ Ивенты -------------------------------
 
@@ -230,3 +233,87 @@ list.forEach((item, key) => {
 //              <div class="delete"></div>
 //     </li>`
 // })
+
+
+//! ------------------------ Глава 2 -------------------------------
+
+//! ------------------------ Оператор проверки ?? -------------------------------
+const box = document.querySelector('.box');
+
+const newHeight = 0;
+const newWidth = 400;
+
+function changeParams(elem, h, w) {
+    elem.style.height = `${h ?? 200}px`;
+    elem.style.width = `${w ?? 200}px`;
+    elem.innerHTML = (h ?? 200) * (w ?? 200); // Приоритет  выполнения ?? довольно низкий, поэтому его можно использовать тут
+}
+
+changeParams(box, newHeight, newWidth);
+
+//! ------------------------ Оператор проверки по цепочке -------------------------------
+const box = document.querySelector('.box');
+const block = document.querySelector('.block');
+
+console.log(block)
+
+// Чтобы избежать ошибки, мы вставляем сюда условие
+if (block) {
+    console.log(block.textContent)
+}
+// Либо можно поступить проще и использовать оператор опциональной цепочки ?
+console.log(block?.textContent)
+
+console.log(1+2)
+
+
+//! Пример с объектами
+const personData = {
+    person: {
+        name: 'Peter',
+        surname: 'Jenkins',
+    },
+    say: function () {
+        console.log('Hello')
+    }
+}
+
+personData.say()
+personData.hey?.()
+
+//* Первый вариант обработки
+if (personData && personData.person && personData.person.skills && personData.person.skills) {
+    console.log(personData.person.skills.js)
+}
+//* Второй вариант обработки
+console.log(personData?.person?.skills?.js)
+
+
+//! ------------------------ Динамические и статические коллекции (и два их метода) -------------------------------
+const boxesQuery = document.querySelectorAll('.box')
+const boxesGet = document.getElementsByClassName('box')
+
+boxesQuery.forEach((box) => { // Выведет элемент с классом this
+    if (box.matches('.this')) { // ищет селектор
+        console.log('This!')
+    }
+})
+
+console.log(boxesQuery[0].closest('.wrapper')) // Выведет родительский элемент
+
+// boxesQuery[0].remove()
+// boxesGet[0].remove()
+//
+// for (let i = 0; i < 5; i++) {
+//     const div = document.createElement('div') // Создаём div
+//     div.classList.add('box') // Добавляем ему класс
+//     document.body.append(div)
+//
+//     //! boxesGet[boxesGet.length] = div // Так делать нельзя! так как тут псевдомассив
+// }
+//
+// console.log(boxesQuery)
+// console.log(boxesGet)
+// // console.log(document.body.children)
+//
+// console.log(Array.from(boxesGet)) // Получаем массив из псевдомассива (коллекции)
