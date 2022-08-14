@@ -13,14 +13,17 @@
     </style>
 </head>
 <body style="background-color: aquamarine">
+
+    <script src="src/js/index.js"></script>
+
     <h1>Hello, world!</h1>
     <div id="box" style="background-color: blueviolet; width: 400px; height: 150px"></div>
-    <div class="btn__container">
+    <div class="btn__container" id="list">
         <ul>
-            <li class="li-list">
+            <li class="li-list" id="current">
                 <button>first</button>
             </li>
-            <li class="li-list">
+            <li class="li-list" data-current="2">
                 <button>second</button>
             </li>
             <li class="li-list">
@@ -31,6 +34,6 @@
             </li>
         </ul>
     </div>
-    <script src="src/js/index.js"></script>
+
 </body>
 </html>
