@@ -1,0 +1,19 @@
+.btn-block {
+    background-color: #D6D9DC;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+button {
+    width: 60px;
+    height: 20px;
+    background-color: #d7d778;
+    border-radius: 1em;
+    transition: 1s;
+}
+.purple{background-color: purple;}
+.blue {background-color: #6565d9;}
+.red {background-color: #944747; transition: 1s;}
+.big {width: 100px; height: 50px;}
+.last {grid-column: 3; grid-row: 3}
