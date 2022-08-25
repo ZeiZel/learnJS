@@ -579,3 +579,57 @@ wrapper.append(newButton);
 // });
 //
 // console.log(btns[0].className); // Хранит классы в виде строки - blue some
+
+
+//! ------------------------ WeakSet WeakMap -------------------------------
+
+"use strict";
+
+let cache = new WeakMap();
+function cacheUser(user) {
+    if (!cache.has(user)) {
+        cache.set(user, Date.now());
+    }
+    return cache.get(user);
+}
+let alex = {name: "Alex"};
+let helen = {name: "Helena"};
+
+cacheUser(alex); cacheUser(helen); helen = null;
+
+// console.log(cache.has(alex), cache.has(helen));
+
+// WeakSet
+let messages = [
+    {text: "Hello, there", name: "John"},
+    {text: "Hi, John", name: "Ann"},
+    {text: "Hello, boys", name: "Markus"},
+];
+let readMassages = new WeakSet();
+readMassages.add(messages[0]).add(messages[1]).add(messages[2]);
+readMassages.add(messages[0]); // Повторное добавление не будет работать
+messages.shift();
+console.log(readMassages.has(messages[2]));
+
+
+
+
+//! ------------------------ Функция-конструктор -------------------------------
+function User(name, age) {
+    this.name = name;
+    this.age = age;
+    this.human = true;
+    this.hello = function () {
+        console.log(`Hello, ${this.name}`)
+    };
+}
+const eugene = new User("Eugene", 28);
+
+User.prototype.exit = function () {
+    console.log(`Пользователь ${this.name} ушёл`)
+}
+const ivan = new User("Ivan", 25);
+const alex = new User("Alex", 20);
+
+ivan.hello();
+ivan.exit();

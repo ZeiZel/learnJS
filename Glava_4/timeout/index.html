@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Timeout</title>
+    <style>
+        .container {
+            width: 1140px;
+            margin: 0 auto;
+        }
+        .btn-box {
+            padding-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            flex-direction: column;
+            width: 200px;
+            height: 300px;
+            border: yellow 5px solid;
+        }
+        .btn-item {
+            height: 20px;
+            width: 80px;
+            color: gray;
+            margin-bottom: 20px;
+        }
+
+        .box-border {
+            position: relative;
+            margin-top: 50px;
+            width: 600px;
+            height: 600px;
+            border: red 5px solid;
+        }
+
+        .box-rider {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-color: blue;
+        }
+
+        .animation-button {
+            margin-top: 40px;
+            height: 50px;
+            width: 100px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn-animation">
+        <button class="animation-button">
+            Animation!
+        </button>
+    </div>
+    <div class="box-border">
+        <div class="box-rider"></div>
+    </div>
+
+
+    <section class="main-section">
+        <div class="main-section__container container">
+            <div class="btn-box">
+                <button class="btn-item">1</button>
+                <button class="btn-item">2</button>
+                <button class="btn-item">3</button>
+                <button class="btn-item">4</button>
+            </div>
+        </div>
+    </section>
+<script src="script.js"></script>
+</body>
+</html>
